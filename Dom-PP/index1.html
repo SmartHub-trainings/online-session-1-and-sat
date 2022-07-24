@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        height: 5px;
+        width: 200px;
+      }
+      .green {
+        background-color: green;
+      }
+
+      .yellow {
+        background-color: yellow;
+      }
+
+      .red {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <input type="text" />
+      <div></div>
+    </main>
+
+    <script>
+      const inputtag = document.querySelector("input");
+      //   inputtag.addEventListener("change", () => {
+      //     console.log("changed");
+      //   });
+      inputtag.addEventListener("input", () => {
+        console.log(inputtag.value);
+        const password = inputtag.value;
+        if (password.length > 15) {
+          console.log("Strong");
+          document.querySelector("div").classList.add("green");
+          document.querySelector("div").classList.remove("yellow");
+          document.querySelector("div").classList.remove("red");
+        } else if (password.length > 8 && password.length <= 15) {
+          console.log("moderate");
+          document.querySelector("div").classList.add("yellow");
+          document.querySelector("div").classList.remove("green");
+          document.querySelector("div").classList.remove("red");
+        } else if (password.length > 0 && password.length <= 8) {
+          console.log("Weak");
+          document.querySelector("div").classList.add("red");
+          document.querySelector("div").classList.remove("yellow");
+          document.querySelector("div").classList.remove("green");
+        } else {
+          console.log("Please enter a password");
+        }
+      });
+    </script>
+  </body>
+</html>
